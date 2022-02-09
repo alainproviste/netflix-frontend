@@ -1,0 +1,31 @@
+.header_menu {
+    flex: 1;
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+        padding-left: 0px;
+        li {
+            margin: 0px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 13px;
+            padding-bottom: 10px;
+            &.active {
+                font-weight: bold;
+                position: relative;
+                &:before {
+                    content: "";
+                    width: 100%;
+                    background-color: black;
+                    position: absolute;
+                    bottom: -10%;
+                    height: 3px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}

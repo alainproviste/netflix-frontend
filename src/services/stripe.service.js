@@ -1,6 +1,6 @@
 export default {
     createSession(token, body) {
-        return fetch("http://localhost:3131/api/v1/checkout/", {
+        return fetch("http://localhost:3131/api/v1/subscription/", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

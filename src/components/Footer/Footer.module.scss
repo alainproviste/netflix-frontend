@@ -26,5 +26,19 @@
                 min-width: 100px;
             }
         }
+        .footer_language{
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            select{
+                text-indent: 0;
+                padding-right: 26px;
+                background-color: #000;
+                background-image: none;
+                border: 1px solid #333;
+                color: #999;
+                font-size: 16px
+            }
+        }
     }
 }

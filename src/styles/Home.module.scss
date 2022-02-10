@@ -1,0 +1,33 @@
+.main{
+    padding: 70px 45px;
+    position: relative;
+    margin-bottom: 0;
+    background: 0 0;
+    color: #fff;
+    .home_container{
+        position: relative;
+        width: 100%;
+        padding: 75px 0;
+        max-width: 950px;
+        margin: 0 auto;
+        text-align: center;
+        z-index: 1;
+        font-size: 1.625rem;
+        font-weight: 400;
+        h1{
+            font-size: 3.125rem;
+        }
+        h2{
+            font-size: 1.625rem;
+        }
+        h1, h2{
+            margin: 0 auto;
+        }
+        h3{
+            padding-top: .85rem;
+            max-width: 950px;
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+        }
+    }
+}

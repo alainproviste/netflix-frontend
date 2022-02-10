@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
+import {BiGlobe} from 'react-icons/bi';
 
 const Footer = () => {
     return (
@@ -17,6 +18,7 @@ const Footer = () => {
                     <li>Mentions légales</li>
                 </ul>
                 <div className={styles.footer_language}>
+                    <BiGlobe/>
                     <select>
                         <option>Français</option>
                     </select>

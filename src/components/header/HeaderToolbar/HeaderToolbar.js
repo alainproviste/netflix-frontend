@@ -12,10 +12,8 @@ const HeaderToolbar = () => {
         setToken(token)
     },[]);
 
-    const logout = (e) => {
-        e.preventDefault();
+    const logout = () => {
         localStorage.removeItem('token');
-        router.push("/");
     }
 
     return (
@@ -28,9 +26,11 @@ const HeaderToolbar = () => {
                     </a>
                 </Link>
                 :
-                    <a onClick={ (e) => logout(e) }>
+                <Link href="/">
+                    <a onClick={ () => logout() }>
                         Se déconnecter
                     </a>
+                </Link>
             }
         </div>
     );

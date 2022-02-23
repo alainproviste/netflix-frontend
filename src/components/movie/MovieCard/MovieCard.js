@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './MovieCard.module.scss';
 import { AiOutlineDown,AiFillPlayCircle } from 'react-icons/ai';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import Link from 'next/link';
+import wishlistService from '../../../services/wishlist.service';
 
 const MovieCard = (props) => {
+
+    const addWish = (movie) => {
+        const token = localStorage.getItem("token");
+        wishlistService.addWish(token, movie);
+        
+    }
     return (
         <div>
             <div className={styles.swiper_slide}>
@@ -16,7 +23,7 @@ const MovieCard = (props) => {
                         <a href={`/watch/${props.movie.id}`} className={ styles.play }>
                             <AiFillPlayCircle/>
                         </a>
-                        <BsFillPlusCircleFill className={ styles.add }/>
+                        <BsFillPlusCircleFill onClick={() => addWish(props.movie.id)} className={ styles.add }/>
                         <Link href={{ query: { id: props.movie.id } }}>
                             <AiOutlineDown className={ styles.arrow }/>
                         </Link>

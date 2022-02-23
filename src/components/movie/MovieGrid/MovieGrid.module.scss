@@ -1,0 +1,7 @@
+.moviesGrid {
+    width: 90%;
+    margin: auto;
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import authService from "../../services/authentification.service";
 import TitlePage from "../../components/UI/Title/TitlePage";
@@ -11,6 +11,13 @@ const Index = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    email = localStorage.getItem("email");
+    setEmail(email);
+    console.log(email);
+  },[]);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +30,7 @@ const Index = () => {
           return false;
         }
         localStorage.setItem("token", data.token);
+        localStorage.removeItem("email");
         router.push("/subscription");
       })
       .catch((err) => {
@@ -33,43 +41,46 @@ const Index = () => {
   };
 
   return (
-    <div className="page__register">
-      <TitlePage title="Inscription" />
-      <p className="text-center">
-        Inscrivez vous pour vous connecter à votre profil
-      </p>
-      <form className={styles.form__register} onSubmit={(e) => handleSubmit(e)}>
-        <Input
-          type="email"
-          label="Email"
-          id="email"
-          name="email"
-          placeholder="Mon email"
-          required={true}
-          onChange={(e) => {
-            setUser({ ...user, email: e.target.value });
-          }}
-        />
-        <Input
-          type="password"
-          label="Mot de passe"
-          id="password"
-          name="password"
-          placeholder="Mon mot de passe"
-          required={true}
-          onChange={(e) => {
-            setUser({ ...user, password: e.target.value });
-          }}
-        />
-        <input className="btn btn-black" type="submit" value="M'inscrire" />
-        {
-          error ? (
-            <Message message={errorMessage} type="error"/>
-          )
-          :
-          ""  
-        }
-      </form>
+    <div className={styles.pageRegister}>
+      <div className={styles.register_container}>
+        <TitlePage title="Inscription" />
+        <p className="text-center">
+          Inscrivez vous pour vous connecter à votre profil
+        </p>
+        <form className={styles.form__register} onSubmit={(e) => handleSubmit(e)}>
+          <Input
+            type="email"
+            label="Email"
+            id="email"
+            name="email"
+            placeholder="Mon email"
+            required={true}
+            value={email}
+            onChange={(e) => {
+              setUser({ ...user, email: e.target.value });
+            }}
+          />
+          <Input
+            type="password"
+            label="Mot de passe"
+            id="password"
+            name="password"
+            placeholder="Mon mot de passe"
+            required={true}
+            onChange={(e) => {
+              setUser({ ...user, password: e.target.value });
+            }}
+          />
+          <input className={styles.register_submit} type="submit" value="M'inscrire" />
+          {
+            error ? (
+              <Message message={errorMessage} type="error"/>
+            )
+            :
+            ""  
+          }
+        </form>
+      </div>
     </div>
   );
 };

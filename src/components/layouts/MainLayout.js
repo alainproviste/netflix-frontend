@@ -19,10 +19,11 @@ const MainLayout = ({children}) => {
                 <Headerlogo/>
                 { token ? 
                 <HeaderMenu/>
-                : <img className={styles.background} src={background.src} alt='Background netflix'/> }
+                : "" }
                 <HeaderToolbar/>
             </header>
             <main>
+                { token ? "" : <img className={styles.background} src={background.src} alt='Background netflix'/> }
                 <div className={styles.container}>
                     {children}
                 </div>

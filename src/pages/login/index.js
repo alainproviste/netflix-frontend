@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { useRouter } from "next/router";
 import authService from "../../services/authentification.service";
 import TitlePage from "../../components/UI/Title/TitlePage";
 import Input from "../../components/UI/Input/Input";
 import Message from "../../components/UI/Message/Message";
 import style from './index.module.scss';
 import background from '../../../public/backgroundHome.jpg'
+import Link from 'next/link';
 
 const Index = () => {
-    const router = useRouter();
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -24,7 +23,7 @@ const Index = () => {
             return false;
             }
             localStorage.setItem("token", data.token);
-            router.push("/profil");
+            window.location.href = "/browse";
         })
         .catch((err) => {
             console.log(err);
@@ -61,6 +60,9 @@ const Index = () => {
                         }}
                     />
                     <input className={style.login_submit} type="submit" value="S'identifier" />
+                    <div>
+                        Première visite sur Netflix ? <Link href="/"><a>Inscrivez-vous</a></Link>
+                    </div>
                     {
                         error ? (
                             <Message message={errorMessage} type="error"/>

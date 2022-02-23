@@ -30,7 +30,15 @@
             position: relative;
             display: inline-block;
             width: 100%;
+            svg{
+                position: absolute;
+                font-size: 30px;
+                top: 7px;
+                left: 8px;
+            }
             select{
+                height: 45px;
+                padding-left: 50px;
                 text-indent: 0;
                 padding-right: 26px;
                 background-color: #000;

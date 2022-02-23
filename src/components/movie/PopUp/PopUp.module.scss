@@ -1,0 +1,72 @@
+.popUpPage{
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .popUpContainer{
+        width: 50%;
+        margin: auto;
+        height: 80%;
+        background-color: #141414;
+        color: white;
+        margin-top: 4vh;
+
+        .upperPart{
+            position: relative;
+            .closeButton{
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                font-size: 40px;
+                color: gray;
+                cursor: pointer;
+            }
+            .playButton{
+                position: absolute;
+                left: 5%;
+                bottom: 10%;
+                border-radius: 4px;
+                background-color: white;
+                padding: 6px 10px;
+                border: none;
+                width: 12%;
+                svg{
+                    margin-right: 8px;
+                }
+            }
+            img{
+                width: 100%;
+            }
+        }
+        .title{
+            margin-top: 1vh;
+            font-size: 1.5em;
+        }
+        .mainInformations{
+            font-size: 1.3em;
+            display: flex;
+            margin-bottom: 1vh;
+            .recommendation{
+                color: #46d369;
+            }
+        }
+        p{
+            margin: 0 20px;
+            margin-top: 5px;
+        }
+        .actors{
+            display: flex;
+        }
+    }
+
+    .popUpBackground{
+        top: 0;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #22222280;
+        z-index: -1;
+    }
+}

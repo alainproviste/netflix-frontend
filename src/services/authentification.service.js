@@ -26,5 +26,13 @@ export default {
             }
         })
         .then(res => res.json())
-    }
+    },
+    verifyToken(token) {
+      return fetch(`${apiConfigs.env.API_URL}api/v1/users/verifytoken`, {
+          headers: {
+              "authorization": token
+          }
+      })
+          .then(res => res.json())
+  }
 }

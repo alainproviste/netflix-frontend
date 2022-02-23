@@ -1,4 +1,5 @@
 .page_login{
+    position: relative;
     min-height: 75vh;
     .login_container{
         padding: 60px 68px 40px;
@@ -19,25 +20,6 @@
             background: #e50914;
             border: 0;
             color: #fff;
-        }
-        .footer_language{
-            border: none;
-            width: auto;
-            display: inline-block;
-            position: relative;
-            select{
-                text-indent: 0;
-                padding-right: 26px;
-                padding-left: 50px;
-                line-height: 1.7;
-                background-color: #000;
-                border: 1px solid #333;
-                ::before{
-                    top: 14px;
-                    color: #999;
-                    content: '\e896';
-                }
-            }
         }
     }
 }

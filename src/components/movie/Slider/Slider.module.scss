@@ -1,0 +1,19 @@
+.swiperContainer{
+    margin: 2%;
+    h2{
+        color: #fff;
+    }
+    .slider{
+        color: #fff;
+        height: 100%;
+        overflow: visible;
+        .slide{
+            width: 20%;
+            img{
+                border-radius: 5px;
+                max-width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

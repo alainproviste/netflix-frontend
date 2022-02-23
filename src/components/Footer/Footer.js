@@ -21,8 +21,10 @@ const Footer = () => {
                     <BiGlobe/>
                     <select>
                         <option>Français</option>
+                        <option>French</option>
                     </select>
                 </div>
+                <p className={styles.country}>Netflix France</p>
              </div>
         </div>
     );

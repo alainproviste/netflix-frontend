@@ -1,0 +1,28 @@
+.panel{
+    position: fixed;
+    height: calc(100vh - 88px);
+    width: 16%;
+    background: #e50914;
+    border-right-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .tab{
+        a {
+            display: inline-flex;
+            width: 90%;
+            text-align: center;
+            margin-left: 18%;
+            margin-block-end: 25%;
+            text-decoration: none;
+            color: white;
+        }
+        h3 {
+            margin: 0;
+            margin-left: 10%;
+        }
+    } 
+}

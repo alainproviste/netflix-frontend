@@ -9,8 +9,8 @@ const HeaderMenu = () => {
         <div className={styles.header_menu}>
             <nav>
                 <ul>
-                    <li className={router.pathname=="/" ? styles.active : ""}>
-                        <Link href="/">
+                    <li className={router.pathname=="/browse" ? styles.active : ""}>
+                        <Link href="/browse">
                             <a>Accueil</a>
                         </Link>
                     </li>
@@ -19,8 +19,8 @@ const HeaderMenu = () => {
                             <a>Films</a>
                         </Link>
                     </li>
-                    <li className={router.pathname=="/ma_liste" ? styles.active : ""}>
-                        <Link href="/ma_liste">
+                    <li className={router.pathname=="/ma-liste" ? styles.active : ""}>
+                        <Link href="/ma-liste">
                             <a>Ma liste</a>
                         </Link>
                     </li>

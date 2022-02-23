@@ -29,5 +29,23 @@
             padding-bottom: 20px;
             font-size: 1.2rem;
         }
+        form{
+            display: flex;
+            justify-content: center;
+            input{
+                height: 60px;
+                min-width: 450px;
+            }
+            button{
+                margin: 0;
+                border: none;
+                border-left: 1px solid #333;
+                font-size: 1.625rem;
+                min-height: 60px;
+                padding: 0 1em;
+                background-color: #e50914;
+                color: #fff;
+            }
+        }
     }
 }

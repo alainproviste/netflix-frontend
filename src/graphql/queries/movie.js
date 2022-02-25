@@ -37,3 +37,21 @@ export const getMovie = gql`
         }
     }
 `
+
+export const getRandomMovie = gql`
+    query { getRandomMovie{
+        id,
+        actors,
+        producer,
+        title,
+        description,
+        year,
+        duration,
+        iframe,
+        img,
+        categories{
+            id,
+            name
+        }
+    }}
+`

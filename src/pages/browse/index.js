@@ -6,10 +6,12 @@ import { getCategories } from '../../graphql/queries/categorie';
 import PopUp from '../../components/movie/PopUp/PopUp';
 import { useRouter } from 'next/router';
 import withAuth from '../../HOC/withAuth';
+import { getRandomMovie } from '../../graphql/queries/movie';
 
 const index = () => {
 
-    const { loading, error, data } = useQuery(getCategories)
+    const { loading, error, data } = useQuery(getCategories);
+    const { loading: loadingMovie, error: errorMovie, data: dataMovie } = useQuery(getRandomMovie);
     const router = useRouter();
 
     if (loading) {
@@ -21,14 +23,23 @@ const index = () => {
         return null;
     }
 
+    if (loadingMovie) {
+        return "loading...";
+    }
+
+    if (errorMovie) {
+        console.log(errorMovie);
+        return null;
+    }
+
     return (
         <>
             {router.query.id ? (<PopUp /> ) : "" }
             <div className={styles.mainMovie}>
-                <img src='https://occ-0-56-55.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABUKCdnCaaUugmOglDlEDOGzU0sll2xUNR2392p5DfqnLfAY8hzY55sfdKgMKjSWMedQvCcuepSDzNdjuOqToJf38Tp56.webp?r=006'></img>
+                <img src={ dataMovie.getRandomMovie.img }></img>
                 <div className={styles.description}>
-                    <h1>Interstellar</h1>
-                    <div className={styles.synopsis}>Dans un proche futur, la Terre est devenue hostile pour l'homme. Les tempêtes de sable sont fréquentes et il n'y a plus que le maïs qui peut être cultivé, en raison d'un sol trop aride. Cooper est un pilote, recyclé en agriculteur, qui vit avec son fils et sa fille dans la ferme familiale.</div>
+                    <h1>{ dataMovie.getRandomMovie.title }</h1>
+                    <div className={styles.synopsis}>{ dataMovie.getRandomMovie.description }</div>
                     <button>Lecture</button>
                     <button>Plus d'infos</button>
                 </div>

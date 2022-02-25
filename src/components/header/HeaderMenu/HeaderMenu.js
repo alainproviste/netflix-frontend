@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './HeaderMenu.module.scss';
 import { useRouter } from 'next/router';
+import jwtDecode from 'jwt-decode';
 
 const HeaderMenu = () => {
     const router = useRouter();
+    const [isAdmin, setIsAdmin] = useState();
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(token){
+            isAdmin = jwtDecode(token).isAdmin;
+            setIsAdmin(isAdmin);
+        }
+    },[]);
     return (
         <div className={styles.header_menu}>
             <nav>
@@ -24,6 +34,17 @@ const HeaderMenu = () => {
                             <a>Ma liste</a>
                         </Link>
                     </li>
+                    { isAdmin == true ? 
+                        <li className={router.pathname=="/films" ? styles.active : ""}>
+                            <Link href="/backoffice-movies">
+                                <a>
+                                    Backoffice
+                                </a>
+                            </Link>
+                        </li>
+                    :
+                        ""
+                    }
                 </ul>
             </nav>
         </div>

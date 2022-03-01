@@ -1,0 +1,14 @@
+.adminNav{
+    width: 100%;
+    color: #fff;
+    ul{
+        width: 30%;
+        margin-left: 33%;
+        display: inline-flex;
+        justify-content: space-around;
+        list-style: none;
+        li{
+            text-transform: uppercase;
+        }
+    }
+}

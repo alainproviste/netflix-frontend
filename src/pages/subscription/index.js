@@ -44,6 +44,12 @@ const Index = () => {
         }
     };
 
+    const handleToggle = (e) => {
+        document.getElementById('classique').style.backgroundColor = '#ef6b72';
+        document.getElementById('prenium').style.backgroundColor = "#ef6b72";
+        e.style.backgroundColor = "#e50914";
+    };
+
     return (
         <div className={styles.pageSub}>
             <h1>Sélectionner le forfait qui vous convient</h1>
@@ -54,12 +60,14 @@ const Index = () => {
                     <li><AiOutlineCheck/> Changez ou annulez votre forfait à tout moment.</li>
                 </ul>
                 <div className={styles.abonnement}>
-                    <div className={styles.choice} onClick={() => {
+                    <div id='classique' className={styles.choice} onClick={(e) => {
+                        handleToggle(e.target);
                         setUser({...user, subscription: "netflix_classique"});
                     }}>
                         Standard: 30€/mois
                     </div>
-                    <div className={styles.choice} onClick={() => {
+                    <div id='prenium' className={styles.choice} onClick={(e) => {
+                        handleToggle(e.target);
                         setUser({...user, subscription: "netflix_prenium"});
                     }}>
                         Prenium: 60€/mois

@@ -36,7 +36,7 @@ const HeaderMenu = () => {
                     </li>
                     { isAdmin == true ? 
                         <li>
-                            <Link href="/backoffice-movies">
+                            <Link href="/newCategorie">
                                 <a>
                                     Backoffice
                                 </a>

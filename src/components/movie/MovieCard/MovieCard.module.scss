@@ -1,7 +1,7 @@
 .swiper_slide{
     img{
         width: 100%;
-        max-height: 12em;
+        max-height: 12vw;
     }
     .movieInformations{
         color: #fff;
@@ -15,7 +15,7 @@
                 font-size: 2vw;
                 cursor: pointer;
             }
-            .play, .add{
+            .play, .wish{
                 margin-left: 2%;
             }
             .arrow{

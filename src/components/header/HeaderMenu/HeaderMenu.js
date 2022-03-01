@@ -35,7 +35,7 @@ const HeaderMenu = () => {
                         </Link>
                     </li>
                     { isAdmin == true ? 
-                        <li className={router.pathname=="/films" ? styles.active : ""}>
+                        <li>
                             <Link href="/backoffice-movies">
                                 <a>
                                     Backoffice

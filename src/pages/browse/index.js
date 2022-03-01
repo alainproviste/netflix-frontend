@@ -7,6 +7,9 @@ import PopUp from '../../components/movie/PopUp/PopUp';
 import { useRouter } from 'next/router';
 import withAuth from '../../HOC/withAuth';
 import { getRandomMovie } from '../../graphql/queries/movie';
+import { GrPlayFill } from 'react-icons/gr';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import Link from 'next/link';
 
 const index = () => {
 
@@ -40,8 +43,12 @@ const index = () => {
                 <div className={styles.description}>
                     <h1>{ dataMovie.getRandomMovie.title }</h1>
                     <div className={styles.synopsis}>{ dataMovie.getRandomMovie.description }</div>
-                    <button>Lecture</button>
-                    <button>Plus d'infos</button>
+                    <Link href={`/watch/${dataMovie.getRandomMovie.id}`} >
+                        <button className={ styles.playButton }><GrPlayFill/>Lecture</button>
+                    </Link>
+                    <Link href={{ query: { id: dataMovie.getRandomMovie.id } }}>
+                        <button className={ styles.playButton }><AiOutlineInfoCircle/>Plus d'infos</button>
+                    </Link>
                 </div>
             </div>
             <div className={styles.categoriesContainer}>

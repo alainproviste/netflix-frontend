@@ -1,14 +1,26 @@
 .mainMovie{
-    height: 56.25vw;
     color: #fff;
     img{
         width: 100%;
         margin-top: -90px;
+        max-height: 75vh;
     }
     .description{
         position: absolute;
         width: 36%;
         top: 25%;
         left: 4%;
+    }
+    .playButton{
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 4px;
+        background-color: white;
+        padding: 12px 22px;
+        border: none;
+        width: auto;
+        svg{
+            margin-right: 8px;
+        }
     }
 }

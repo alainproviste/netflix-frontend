@@ -16,7 +16,6 @@ const Index = () => {
   useEffect(() => {
     email = localStorage.getItem("email");
     setEmail(email);
-    console.log(email);
   },[]);
   
   const handleSubmit = (e) => {
@@ -31,7 +30,7 @@ const Index = () => {
         }
         localStorage.setItem("token", data.token);
         localStorage.removeItem("email");
-        router.push("/subscription");
+        window.location.href = "/subscription";
       })
       .catch((err) => {
         console.log(err);
@@ -57,6 +56,8 @@ const Index = () => {
             required={true}
             value={email}
             onChange={(e) => {
+              setEmail(e.target.value);
+              console.log(email);
               setUser({ ...user, email: e.target.value });
             }}
           />

@@ -55,3 +55,23 @@ export const getRandomMovie = gql`
         }
     }}
 `
+
+export const getMoviesByCategorie = gql`
+    query getMoviesByCategorie($id:ID){
+        getMoviesByCategorie (id:$id){
+            id,
+            actors,
+            producer,
+            title,
+            description,
+            year,
+            duration,
+            iframe,
+            img,
+            categories{
+                id,
+                name
+            }
+        }
+    }
+`

@@ -11,6 +11,9 @@ import { getMovie } from '../../../graphql/queries/movie';
 const MovieCard = (props) => {
 
     const [action, setAction] = useState();
+    const [id, setId] = useState();
+
+    const { loading, error, data } = useQuery(getMovie, { variables: { id }, });
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -20,27 +23,24 @@ const MovieCard = (props) => {
                 setAction(result.inWishlist);
             });
         }
+        if(!props.movie.title){
+            setId(props.movie);
+            const token = localStorage.getItem('token');
+            
+            if (loading) {
+                return "loading...";
+            }
+
+            if (error) {
+                return null;
+            }
+
+            wishlistService.inWishlist(token, data.getMovie.id)
+            .then(result => {
+                setAction(result.inWishlist);
+            });
+        }
     },[]);
-
-    if(!props.movie.title){
-        const token = localStorage.getItem('token');
-        const id = props.movie;
-        const { loading, error, data } = useQuery(getMovie, { variables: { id }, });
-        
-        if (loading) {
-            return "loading...";
-        }
-
-        if (error) {
-            console.log(error);
-            return null;
-        }
-
-        wishlistService.inWishlist(token, data.getMovie.id)
-        .then(result => {
-            setAction(result.inWishlist);
-        });
-    }
 
     const addWish = (movie) => {
         const token = localStorage.getItem("token");

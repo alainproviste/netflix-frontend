@@ -11,8 +11,8 @@ const Footer = () => {
                 </p>
                 <ul>
                     <li>FAQ</li>
-                    <li>Centre d'aide</li>
-                    <li>Conditions d'utilisation</li>
+                    <li>Centre d aide</li>
+                    <li>Conditions d utilisation</li>
                     <li>Confidentialité</li>
                     <li>Préférences de cookies</li>
                     <li>Mentions légales</li>

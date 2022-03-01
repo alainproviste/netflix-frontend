@@ -4,10 +4,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import stripeService from "../../services/stripe.service";
 import withAuth from '../../HOC/withAuth';
 import authentificationService from '../../services/authentification.service';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK);
 
-const index = () => {
+const Index = () => {
     const [user, setUser] = useState({});
 
     useEffect(() => {
@@ -48,9 +49,9 @@ const index = () => {
             <h1>Sélectionner le forfait qui vous convient</h1>
             <div className={styles.presentationContainer}>
                 <ul>
-                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z" fill="currentColor"></path></svg> Regardez autant que vous voulez. Sans publicité.</li>
-                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z" fill="currentColor"></path></svg> Recommandations personnalisées.</li>
-                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="checkmark-group--icon" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z" fill="currentColor"></path></svg> Changez ou annulez votre forfait à tout moment.</li>
+                    <li><AiOutlineCheck/> Regardez autant que vous voulez. Sans publicité.</li>
+                    <li><AiOutlineCheck/> Recommandations personnalisées.</li>
+                    <li><AiOutlineCheck/> Changez ou annulez votre forfait à tout moment.</li>
                 </ul>
                 <div className={styles.abonnement}>
                     <div className={styles.choice} onClick={() => {
@@ -70,4 +71,4 @@ const index = () => {
     );
 };
 
-export default withAuth(index);
+export default withAuth(Index);

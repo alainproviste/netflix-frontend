@@ -11,7 +11,7 @@ import { GrPlayFill } from 'react-icons/gr';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import Link from 'next/link';
 
-const index = () => {
+const Index = () => {
 
     const { loading, error, data } = useQuery(getCategories);
     const { loading: loadingMovie, error: errorMovie, data: dataMovie } = useQuery(getRandomMovie);
@@ -47,7 +47,7 @@ const index = () => {
                         <button className={ styles.playButton }><GrPlayFill/>Lecture</button>
                     </Link>
                     <Link href={{ query: { id: dataMovie.getRandomMovie.id } }}>
-                        <button className={ styles.playButton }><AiOutlineInfoCircle/>Plus d'infos</button>
+                        <button className={ styles.playButton }><AiOutlineInfoCircle/>Plus d infos</button>
                     </Link>
                 </div>
             </div>
@@ -62,4 +62,4 @@ const index = () => {
     );
 };
 
-export default withAuth(index);
+export default withAuth(Index);

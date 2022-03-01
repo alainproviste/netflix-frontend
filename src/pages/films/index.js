@@ -49,7 +49,7 @@ const Index = () => {
                 <option value={""}>Genres</option>
                 {
                     dataCategories.getCategories.map((categorie) => (
-                        <option value={ categorie.id }>{ categorie.name }</option>
+                        <option value={ categorie.id } key={categorie.id}>{ categorie.name }</option>
                     ))
                 }
             </select>

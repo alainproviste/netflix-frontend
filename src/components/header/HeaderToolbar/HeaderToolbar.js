@@ -21,7 +21,7 @@ const HeaderToolbar = () => {
            { !token ? 
                 <Link href="/login">
                     <a>
-                        S'identifier
+                        S identifier
                     </a>
                 </Link>
                 :

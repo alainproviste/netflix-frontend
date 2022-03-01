@@ -1,6 +1,6 @@
 import React from 'react';
 import LogoImg from "../../../../public/Netflix-logo.png";
-import styles from "./Headerlogo.module.scss";
+import styles from "./HeaderLogo.module.scss";
 
 const Headerlogo = () => {
     return (

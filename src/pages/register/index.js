@@ -23,14 +23,16 @@ const Index = () => {
     authService.register(user)
       .then((data) => {
         console.log(data);
-        if (data.message) {
-          setError(true);
-          setErrorMessage(data.message);
-          return false;
-        }
-        localStorage.setItem("token", data.token);
-        localStorage.removeItem("email");
-        window.location.href = "/subscription";
+        // if (data.message) {
+        //   setError(true);
+        //   setErrorMessage(data.message);
+        //   return false;
+        // }
+        // if(data.token){
+        //   localStorage.setItem("token", data.token);
+        //   localStorage.removeItem("email");
+        //   window.location.href = "/subscription";
+        // }
       })
       .catch((err) => {
         console.log(err);

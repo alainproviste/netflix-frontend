@@ -18,12 +18,14 @@ const Index = () => {
         .then((data) => {
             console.log(data);
             if (data.message) {
-            setError(true);
-            setErrorMessage(data.message);
-            return false;
+                setError(true);
+                setErrorMessage(data.message);
+                return false;
             }
-            localStorage.setItem("token", data.token);
-            window.location.href = "/browse";
+            if(data.token){
+                localStorage.setItem("token", data.token);
+                window.location.href = "/browse";
+            }
         })
         .catch((err) => {
             console.log(err);
